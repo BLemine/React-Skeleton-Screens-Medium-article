@@ -10,7 +10,8 @@ function App() {
       .then(resp => setPoetry(resp))
   }
   useEffect(() => {
-    fetchPoetry();
+    setTimeout(()=>fetchPoetry(),5000);
+    //fetchPoetry();
   }, [])
   return (
     <div className="container" >
