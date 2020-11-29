@@ -1,4 +1,11 @@
 .poetryContainer {
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left:40px;
+  margin-right: 20%;
+  width:80%;
+  display:inline-block;
+}
+.poetSkeletonContainer{ 
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
