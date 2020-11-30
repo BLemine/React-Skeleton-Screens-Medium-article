@@ -2,10 +2,10 @@ import './App.css';
 import { useEffect, useState, Fragment } from "react";
 import Skeleton from './skeleton'
 function App() {
-  const [poetry, setPoetry] = useState([]);
+  const [poems, setPoems] = useState([]);
   const [poet, setPoet] = useState("");
 
-  const fetchPoetry = () => {
+  const fetchPoems = () => {
     fetch("https://poetrydb.org/author")
       .then(res => res.json())
       .then(resp => {
@@ -13,22 +13,22 @@ function App() {
         setPoet(chosenPoet)
         fetch("https://poetrydb.org/author/" + chosenPoet)
           .then(res => res.json())
-          .then(resp => setPoetry(resp))
+          .then(resp => setPoems(resp))
       }
       )
   }
 
   useEffect(() => {
-    setTimeout(() => fetchPoetry(), 5000);
-    //fetchPoetry();
+    setTimeout(() => fetchPoems(), 5000);
+    //fetchPoems();
   }, [])
   return (
     <div>
       <div className="poetryContainer">
-        <h2 style={{ textAlign: "center" }}>Quick Random Poetry</h2>
-        {poetry.length !== 0 ?
+        <h2 style={{ textAlign: "center" }}>Quick Random Poems</h2>
+        {poems.length !== 0 ?
           <>
-            {poetry.map((poem, index) => {
+            {poems.map((poem, index) => {
               if (index <= 10) {
                 return <div key={index} style={{ marginBottom: 30 }}>
                   <span style={{ display: "block", marginBottom: 10 }}><span style={{ fontWeight: "bold" }}>Title : </span>{poem.title}</span>
